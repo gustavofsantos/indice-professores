@@ -1,0 +1,32 @@
+.search-error {
+  color: $off-white;
+  font-style: italic;
+  padding: 0 $m-size;
+  margin: $m-size 0 0 0;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  padding: $m-size;
+}
+
+.search__input {
+  flex-grow: 1;
+  border: none;
+  color: $dark-foreground;
+  background: $dark-background;
+  border-bottom: .3rem solid darken($dark-accent, 10%);
+  margin: 0 0 $s-size 0;//   margin-right: $m-size;
+  padding: $s-size;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .add-option {
+      flex-direction: row;
+  }
+
+  .add-option__input {
+      margin: 0 $s-size 0 0;
+  }
+}

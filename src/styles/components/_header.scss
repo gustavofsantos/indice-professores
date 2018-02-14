@@ -1,0 +1,32 @@
+.header {
+  background: $dark-background;
+  color: $dark-foreground;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0;
+  padding: $s-size 0;
+}
+
+// BEM block element modifier
+.header__title {
+  display: flex;
+  justify-content: space-around;
+  font-size: $l-size;
+  margin: 0;
+}
+
+.header__subtitle {
+  display: flex;
+  justify-content: space-around;
+  color: $off-white;
+  font-size: $m-size;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .header {
+      margin-bottom: $xl-size;
+      padding: $s-size 0;
+  }
+}

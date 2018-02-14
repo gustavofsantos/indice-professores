@@ -1,0 +1,28 @@
+.widget {
+  background: darken($dark-background, 10%);
+  margin-bottom: $xl-size;
+}
+
+.widget__message {
+  margin: 0;
+  color: $body-background;
+  padding: $l-size;
+  text-align: center;
+  border-bottom: 1px solid lighten($light-blue, 10%);
+}
+
+.widget-header {
+  background: $body-background;
+  color: $off-white;
+  display: flex;
+  justify-content: space-between;
+  padding: $m-size;
+}
+
+// setup an element selector for widget-header
+// set margin
+// use the class
+
+.widget-header__title {
+  margin: 0;
+}

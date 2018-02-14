@@ -1,0 +1,22 @@
+.professor {
+  border-bottom: 1px solid darken($dark-background-lighter, 5%);
+  display: flex;
+  justify-content: space-between;
+  padding: $l-size $m-size;
+}
+
+.professor__name {
+  color: $dark-foreground;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 0;
+  word-break: break-all;
+}
+
+.professor__unit {
+  color: darken($dark-foreground, 20%);
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0;
+  word-break: break-all;
+}

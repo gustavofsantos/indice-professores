@@ -1,10 +1,24 @@
 import React from 'react'
 
-const Commentary = (props) => (
-  <div className='commentary'>
-    <p className='commentary__usename'>{props.username}</p>
-    <p className='commentary__commentary'>{props.commentary}</p>
+import Commentary from './Commentary'
+
+const Commentaries = (props) => (
+  <div>
+  {
+    props.commentaries.length === 0 &&
+      <p>Ainda não existem comentários.</p>
+  }
+  {
+    props.commentaries.map((commentary, index) => (
+      <Commentary
+        key={index}
+        index={index}
+        commentary={commentary}
+        handleClickUp={props.handleClickUp}
+        handleClickDown={props.handleClickDown} />
+    ))
+  }
   </div>
 )
 
-export default Commentary
+export default Commentaries

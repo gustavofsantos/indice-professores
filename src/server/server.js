@@ -2,6 +2,7 @@ require('./config/config')
 
 const express = require('express')
 const path = require('path')
+const bodyparser = require('body-parser')
 
 const { mongoose } = require('./db/mongoose')
 const { Professor } = require('./models/professor')
@@ -10,6 +11,8 @@ const { ObjectID } = require('mongodb')
 
 const app = express()
 const port = process.env.PORT || 3000
+
+app.use(bodyparser.json())
 
 const search = (data, term) => {
   var results = []
@@ -101,6 +104,92 @@ app.get('/top', (req, res) => {
     console.log(error)
   })
 })
+
+app.patch('/addcomment', (req, res) => {
+  console.log('POST /addcomment')
+  let id = req.body.id
+  let comment = req.body.comment
+
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send()
+  }
+
+  console.log(`Append no DB: ${comment}`)
+
+  if (comment) {
+    Professor.findByIdAndUpdate(id, {$push: { commentaries: { commentary: comment, ups: 0, downs: 0 } }})
+      .then(prof => {
+        if (!prof) {
+          return res.status(404).send()
+        }
+        console.log(prof)
+      })
+      .catch(error => {
+        res.status(404).send()
+        console.log(error)
+      })
+  }
+})
+
+// click do botão up no comentário
+app.patch('/ecu', (req, res) => {
+  console.log('PATH /ecu Will eval up comment')
+  let id = req.body.id
+  let index = parseInt(req.body.index)
+
+  console.log("id", id)
+  console.log('index', index)
+
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send()
+  }
+
+  Professor.findByIdAndUpdate(id)
+    .then(prof => {
+      // update the ups field
+      prof.commentaries[index].ups += 1
+      prof.save().then(doc => {
+          res.status(200).send()
+      }).catch(error => {
+        console.log(error)
+      })
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  })
+
+  app.patch('/ecd', (req, res) => {
+    console.log('PATH /ecd Will eval down comment')
+    let id = req.body.id
+    let index = parseInt(req.body.index)
+  
+    console.log("id", id)
+    console.log('index', index)
+  
+    if (!ObjectID.isValid(id)) {
+      return res.status(404).send()
+    }
+  
+    Professor.findByIdAndUpdate(id)
+      .then(prof => {
+        console.log(prof)
+        prof.commentaries[index].downs += 1
+        let ups = prof.commentaries[index].ups
+        let downs = prof.commentaries[index].downs
+        if (ups - downs < -10) { // threshold of ten negative votes
+          prof.commentaries[index].visible = false;
+        }
+        prof.save().then(doc => {
+            res.status(200).send()
+        }).catch(error => {
+          console.log(error)
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    })
 
 app.listen(port, () => {
   console.log(`Started at port ${port}`)

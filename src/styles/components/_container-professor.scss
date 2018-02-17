@@ -3,25 +3,25 @@
   max-width: 60rem;
   margin: 0 auto;
   padding: 0 $m-size;
-  color: $dark-foreground;
+  color: $fancy-foreground;
 }
 
 .container-professor__name {
   font-size: $l-size;
-  color: $dark-foreground;
+  color: $fancy-foreground;
 }
 
 .container-professor__unit {
   font-size: $m-size;
-  color: darken($dark-foreground, 15%);
+  color: rgba(72, 96, 163, 0.7);
 }
 
 .container-professor__index {
   font-size: $m-size;
-  color: $dark-accent;
+  color: $fancy-foreground;
 }
 
 .container-professor__votes {
   font-size: $s-size;
-  color: darken($dark-foreground, 30%);
+  color: lighten($fancy-foreground, 30%);
 }

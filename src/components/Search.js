@@ -23,7 +23,7 @@ export default class Search extends React.Component {
       <div>
         <form className='search' onSubmit={this.handleQuery}>
           <input className='search__input' type='text' name='query' />
-          <button className='button'>Pesquisar</button>
+          <button className='search__button'>pesquisar</button>
         </form>
       </div>
     )

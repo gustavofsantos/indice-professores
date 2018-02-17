@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, NavLink, HashRouter } from 'react-router-dom'
 import axios from 'axios'
 
 // custom components
@@ -117,19 +118,8 @@ export default class App extends React.Component {
       return (
         <div>
           <Header 
-            username='default'/>
-          <div className='container'>
-            <Search handleQuery={this.handleQuery} />
-            <div className='widget'>
-              <Professors 
-                professors={this.state.professors} 
-                handleClickProfessor={this.handleClickProfessor} />
-            </div>
-            <div className='widget'>
-              <ButtonText
-                handleClickMore={this.handleClickMore} />
-            </div>
-          </div>
+            title='default'/>
+          
         </div>
       )
     }

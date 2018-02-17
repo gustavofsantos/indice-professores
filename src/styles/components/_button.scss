@@ -1,8 +1,8 @@
 .big-button {
-  background: $dark-accent;
+  background: $fancy-accent;
   border: none;
-  border-bottom: .6rem solid darken($dark-accent, 10%);
-  color: $dark-foreground;
+  border-bottom: .6rem solid darken($fancy-foreground, 10%);
+  color: $fancy-foreground;
   font-weight: bold;
   font-size: $l-size;
   margin-bottom: $m-size;
@@ -22,17 +22,17 @@
 
 // button
 .button {
-  background: $dark-accent;
-  border: none;
-  border-bottom: .3rem solid darken($dark-accent, 10%);
-  color: darken($dark-accent, 50%);
+  background: $fancy-accent;
+  //border: none;
+  border-bottom: .3rem solid darken($fancy-accent, 10%);
+  color: darken($fancy-accent, 50%);
   font-weight: bold;
   font-size: $m-size;
   padding: $s-size;
 }
 
 button:active {
-  background: $dark-accent-darker;
+  background: $fancy-accent;
 }
 
 // modificação do button
@@ -43,7 +43,7 @@ button:active {
   // border-radius: 4px;
   // font-weight: bold;
   font-size: $m-size;
-  color: $dark-accent;
+  color: $fancy-accent;
   padding: $s-size;
   // padding: 0.75rem;
 }

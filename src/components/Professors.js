@@ -14,8 +14,6 @@ const Professors = (props) => (
           unit = {professor.unit}
           index = {professor.index}
           id = {professor._id}
-          votes = {professor.votes}
-          handleClickProfessor = {props.handleClickProfessor}
         />
       ))
     }

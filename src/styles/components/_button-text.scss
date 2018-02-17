@@ -1,0 +1,24 @@
+.button-text {
+  background: none;
+  color: $fancy-foreground;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+  padding: $xxl-size 0 $m-size 0;
+  width: 100%;
+}
+
+.button-text__mais {
+  background: $fancy-accent;
+  color: white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-radius: $xl-size;
+  border-width: 0;
+  border: none;
+  padding: $s-size;
+  box-shadow: 0px 6px 20px 2px $fancy-accent-shadow-color;
+}

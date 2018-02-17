@@ -1,0 +1,45 @@
+.commentary-box {
+  padding-top: $m-size;
+  max-width: 60rem;
+  //margin: 0 auto;
+  //padding: 0 $m-size;
+  width: 90%;
+  border: none;
+}
+
+.commentary-box__text {
+  padding: $s-size;
+  background: white;
+  border-color: white;
+  border-radius: $m-size;
+  color: $fancy-foreground;
+  margin-bottom: $s-size;
+  width: 100%;
+}
+
+.commentary-box__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: $s-size;
+}
+
+.commentary-box__button--up {
+  color: white;
+  font-size: $s-size;
+  background: $fancy-accent;
+  border-radius: $s-size;
+  border: none;
+  margin: $s-size;
+  padding: $s-size;
+}
+
+.commentary-box__button--down {
+  color: white;
+  font-size: $s-size;
+  background: $fancy-accent;
+  border-radius: $s-size;
+  border: none;
+  margin: $s-size;
+  padding: $s-size;
+}

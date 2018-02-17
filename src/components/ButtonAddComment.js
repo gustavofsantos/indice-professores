@@ -1,15 +1,13 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
 const ButtonAddComment = (props) => (
-  <div className='header'>
-    <div className='container'>
-      <button
-        className='button button--link'
-        onClick={(e) => props.handleAddCommentView()}
-      >
+  <div className='button-text'>
+    <Link to={`/comment/${props.id}`}>
+      <button className='button-text__mais'>
         comentar
       </button>
-    </div>
+    </Link>
   </div>
 )
 

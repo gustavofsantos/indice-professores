@@ -1,20 +1,21 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const Professor = (props) => (
   <div className='professor'>
-    <div>
-      <p className='professor__name'>{props.name}</p>
-      <p className='professor__unit'>{props.unit}</p>
-    </div>
-    <button
-      className='button button--link'
-      onClick={(e) => {
-        props.handleClickProfessor(props.id)
-      }}
-    >
-      abrir
-    </button>
+    <Link to={`/professor/${props.id}`}>
+      <button className='professor--link'>
+        <div className='professor__info-box'>
+          <p className='professor__name'>{props.name}</p>
+          <p className='professor__unit'>{props.unit}</p>
+        </div>
+        {/*
+        <div>
+          <h2>{props.index || "N/A"}</h2>
+        </div>
+        */}
+      </button>
+    </Link>
   </div>
 )
 

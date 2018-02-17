@@ -1,0 +1,42 @@
+.add-commentary {
+  margin-top: $m-size;
+  max-width: 60rem;
+  //margin: 0 auto;
+  padding: $l-size;
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-commentary__text {
+  background: white;
+  max-width: 60rem;
+  border-radius: $m-size;
+  justify-self: auto;
+  margin-top: $s-size;
+  //margin: $s-size;
+  font-weight: bold;
+  color: $fancy-foreground;
+  //margin-bottom: $s-size;
+  padding: $s-size;
+  border: none;
+  //width: 96%
+}
+
+.add-commentary__message {
+  background: none;
+  color: $fancy-foreground;
+  margin-bottom: $l-size;
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-commentary__button {
+  display: flex;
+  justify-content: space-around;
+  background: $fancy-accent;
+  color: white;
+  box-shadow: 0px 8px 20px 2px $fancy-accent-shadow-color;
+  border-radius: $xl-size;
+  width: 100%;
+  padding: 0 $m-size 0 $m-size;
+}

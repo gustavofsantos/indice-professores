@@ -1,22 +1,46 @@
 .professor {
-  border-bottom: 1px solid darken($dark-background-lighter, 5%);
+  margin-top: $l-size;
+  //border-bottom: 1px solid darken($light-background, 10%);
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  padding: $l-size $m-size;
+  padding: $s-size;
+  box-shadow: 0px 10px 40px 1px rgba(255, 255, 255, 0.2);
+  border-radius: $m-size;
+  background: white;
+  //width: 100%;
+}
+
+.professor__info-box {
+  display: flex;
+  flex-direction: column;
 }
 
 .professor__name {
-  color: $dark-foreground;
-  font-weight: 500;
-  font-size: 2rem;
+  color: $fancy-foreground;
+  font-weight: bold;
+  font-size: $l-size;
+  justify-content: initial;
+  margin: 0;
+  white-space: normal;
+  //word-break: break-all;
+}
+
+.professor__unit {
+  color: lighten($fancy-foreground, 15%);
+  font-size: $s-size;
   margin: 0;
   word-break: break-all;
 }
 
-.professor__unit {
-  color: darken($dark-foreground, 20%);
-  font-weight: 500;
-  font-size: 1rem;
-  margin: 0;
-  word-break: break-all;
+.professor--link {
+  background: none;
+  border: none;
+  // border: 2px solid $dark-accent;
+  // border-radius: 4px;
+  // font-weight: bold;
+  font-size: $m-size;
+  color: $fancy-accent;
+  padding: $s-size;
+  // padding: 0.75rem;
 }

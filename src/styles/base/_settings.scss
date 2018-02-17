@@ -8,16 +8,20 @@ $black: #020205;
 $light-blue: #464b5e;
 $purple: #8357c5;
 // theme
-$fancy-background: #DEDAFB;
+$fancy-background: #F1EFFF;
 $fancy-foreground: #4861A3;
+$fancy-foreground-transp: rgba(72, 96, 163, 0.6);
 $fancy-header-background: #8666D2;
 $fancy-header-foreground: rgba(255, 255, 255, 0.8);
 $fancy-header-shadow-color: rgba(133, 102, 210, 0.4);
 $fancy-accent: #45D8D5;
+$fancy-accent-error: #FD4468;
 $fancy-accent-shadow-color: rgba(69, 216, 210, 0.3);
 // dark
 $fancyd-background: #2B2B37;
 $fancyd-foreground: #F2F3F8;
+//
+
 // spaces
 $s-size: 1.2rem;
 $m-size: 1.6rem;

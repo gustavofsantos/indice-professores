@@ -14,23 +14,7 @@ export default class AddCommentView extends React.Component {
     unit: ''
   }
 
-  handleAddComment = (e) => {
-    e.preventDefault()
-
-    const commentary = e.target.elements.comment.value.trim()
-    console.log(`Adicionar o comentário ${commentary}`)
-
-    axios.patch('/addcomment', {
-      id: this.state.id,
-      comment: commentary
-    })
-    .then(res => {
-      console.log(res)
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }
+  
 
   componentWillMount() {
     let id = this.props.match.params.id

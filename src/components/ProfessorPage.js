@@ -5,6 +5,7 @@ import Commentaries from './Commentaries'
 import ButtonAddComment from './ButtonAddComment'
 import Link from 'react-router-dom/Link';
 import ProfessorInfo from './ProfessorInfo';
+import BoxComment from './BoxComment';
 
 export default class ProfessorPage extends React.Component {
   state = {
@@ -61,7 +62,7 @@ export default class ProfessorPage extends React.Component {
     .then(res => {
       console.log(res)
       this.setState(() => ({
-        haveVotted: true
+        haveVoted: true
       }))
     })
     .catch(error => {
@@ -84,8 +85,28 @@ export default class ProfessorPage extends React.Component {
     .then(res => {
       console.log(res)
       this.setState(() => ({
-        haveVotted: true
+        haveVoted: true
       }))
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
+  handleAddComment = (e) => {
+    e.preventDefault()
+
+    const commentary = e.target.elements.comment.value.trim()
+    console.log(`Adicionar o comentário ${commentary}`)
+
+    console.log(this.state);
+
+    axios.patch('/addcomment', {
+      id: this.state._id,
+      comment: commentary
+    })
+    .then(res => {
+      console.log(res)
     })
     .catch(error => {
       console.log(error)
@@ -116,14 +137,15 @@ export default class ProfessorPage extends React.Component {
               index={this.state.index}
               votes={this.state.votes} />
           </div>
+          <div>
+            <BoxComment 
+              handleAddComment={this.handleAddComment}/>
+          </div>
           <div className='container-comments'>
               <Commentaries 
                 commentaries={this.state.comments} 
                 handleClickUp={this.handleClickUp}
                 handleClickDown={this.handleClickDown} />
-          </div>
-          <div className='widget'>
-            <ButtonAddComment id={this.state._id} />
           </div>
         </div>
     )

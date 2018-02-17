@@ -1,9 +1,13 @@
 .commentary-box {
-  padding-top: $m-size;
+  //padding-top: $m-size;
   max-width: 60rem;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   //margin: 0 auto;
   //padding: 0 $m-size;
-  width: 90%;
+  width: 100%;
   border: none;
 }
 
@@ -11,10 +15,27 @@
   padding: $s-size;
   background: white;
   border-color: white;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: space-between;
   border-radius: $m-size;
   color: $fancy-foreground;
-  margin-bottom: $s-size;
-  width: 100%;
+  margin-bottom: 0.4rem;
+  margin: $s-size;
+  white-space: normal;
+  //width: 100%;
+}
+
+.commentary-box__counters {
+  color: $fancy-foreground-transp;
+  display: flex;
+  flex-direction: row;
+  justify-content: initial;
+}
+
+.commentary-box__counters--text {
+  margin-right: 0.4rem;
+  font-weight: bold;
 }
 
 .commentary-box__button {
@@ -26,7 +47,7 @@
 
 .commentary-box__button--up {
   color: white;
-  font-size: $s-size;
+  font-size: $m-size;
   background: $fancy-accent;
   border-radius: $s-size;
   border: none;
@@ -36,8 +57,8 @@
 
 .commentary-box__button--down {
   color: white;
-  font-size: $s-size;
-  background: $fancy-accent;
+  font-size: $m-size;
+  background: $fancy-accent-error;
   border-radius: $s-size;
   border: none;
   margin: $s-size;

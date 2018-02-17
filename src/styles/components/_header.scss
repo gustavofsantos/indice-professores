@@ -1,12 +1,9 @@
 .header {
   background: $fancy-header-background;
-  color: white;
+  color: $fancy-header-foreground;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  //margin-bottom: 0;
-  //padding: 0 0 0 0;
-  // position: fixed;
   border: none;
   width: 100%;
   height: $xl-size;

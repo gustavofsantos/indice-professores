@@ -110,6 +110,9 @@ app.patch('/addcomment', (req, res) => {
   let id = req.body.id
   let comment = req.body.comment
 
+  console.log(id)
+  console.log(comment)
+
   if (!ObjectID.isValid(id)) {
     return res.status(404).send()
   }
@@ -117,7 +120,15 @@ app.patch('/addcomment', (req, res) => {
   console.log(`Append no DB: ${comment}`)
 
   if (comment) {
-    Professor.findByIdAndUpdate(id, {$push: { commentaries: { commentary: comment, ups: 0, downs: 0 } }})
+    Professor.findByIdAndUpdate(id, 
+      {$push: { 
+        commentaries: { 
+          commentary: comment, 
+          ups: 0, 
+          downs: 0, 
+          visible: true 
+        } 
+      }})
       .then(prof => {
         if (!prof) {
           return res.status(404).send()

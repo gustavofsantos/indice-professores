@@ -3,17 +3,12 @@ import { NavLink, Link } from 'react-router-dom'
 
 const Professor = (props) => (
   <div className='professor'>
-    <Link to={`/professor/${props.id}`}>
+    <Link className='professor--link' to={`/professor/${props.id}`}>
       <button className='professor--link'>
         <div className='professor__info-box'>
           <p className='professor__name'>{props.name}</p>
-          <p className='professor__unit'>{props.unit}</p>
+          <p className='professor__unit'>{props.unit.toUpperCase()}</p>
         </div>
-        {/*
-        <div>
-          <h2>{props.index || "N/A"}</h2>
-        </div>
-        */}
       </button>
     </Link>
   </div>

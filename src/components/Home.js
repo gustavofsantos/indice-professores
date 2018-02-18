@@ -64,7 +64,8 @@ export default class Home extends React.Component {
   componentDidMount() {
     console.log('componente montado')
 
-    axios.get('/top')
+    /*
+    axios.get('/home')
       .then(res => {
         // console.log(res.data)
         this.setState(() => ({
@@ -75,7 +76,7 @@ export default class Home extends React.Component {
       .catch(error => {
         console.log(error)
       })
-
+      */
   }
 
   render() {

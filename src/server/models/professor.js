@@ -15,16 +15,15 @@ const Professor = mongoose.model('Professor', {
     type: String,
     default: null
   },
-  votes: [
-    {
-      vote: {
-        type: Number,
-        required: true
-      },
-      date: {
-        type: Date,
-        default: null
-      }
+  votes: [{
+    vote: {
+      type: Number,
+      required: true
+    },
+    date: {
+      type: Date,
+      default: null
+    }
   }],
   commentaries: [{
     commentary: {

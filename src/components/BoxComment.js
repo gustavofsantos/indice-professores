@@ -5,7 +5,7 @@ const BoxComment = (props) => (
     <form className='add-commentary' onSubmit={props.handleAddComment}>
       <textarea className='add-commentary__text' type='text' name='comment' 
         rows="6" autoFocus required/>
-      <div >
+      <div  >
           <button className='add-commentary__button'>comentar</button>
       </div>
     </form>

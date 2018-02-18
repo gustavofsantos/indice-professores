@@ -10,7 +10,6 @@
   flex-direction: column;
   width: 100%;
   margin-top: $m-size;
-  //padding: $xxl-size 0 $m-size 0;
 }
 
 .search__input {
@@ -18,10 +17,13 @@
   border: none;
   color: $fancy-foreground;
   background: white;
+  //color: $fancy-foreground-transp;
+  //background: black;
   border-radius: 20rem;
   border: none;
-  margin: 0 0 $s-size 0;//   margin-right: $m-size;
+  margin: 0 0 $s-size 0;
   padding: $s-size;
+  font-size: $m-size;
 }
 
 .search__button {
@@ -33,6 +35,7 @@
   font-weight: normal;
   border: none;
   font-size: $m-size;
+  letter-spacing: .4rem;
   font-weight: bold;
   padding: $s-size;
   border-radius: $xl-size;

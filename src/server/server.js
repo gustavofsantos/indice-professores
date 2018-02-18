@@ -35,7 +35,7 @@ app.get('/query/:id', (req, res) => {
   console.log('GET /query/:id')
 
   const query = req.params.id
-  console.log(query)
+  //console.log(query)
 
   Professor.find({}, (error, resp) => {
     if (!error) {
@@ -43,7 +43,7 @@ app.get('/query/:id', (req, res) => {
 
       console.log('Foram encontrados', professorsQuery.length, 'resultados para a query ', query)
 
-      const professors = professorsQuery.slice(0, 10)
+      const professors = professorsQuery.sort().slice(0, 10)
       if (professors.length > 0) {
         res.status(200).send({ professors })
       }
@@ -60,7 +60,7 @@ app.get('/queryqtd/:query/:qtd', (req, res) => {
   const query = req.params.query
   const qtd = parseInt(req.params.qtd) 
 
-  console.log(query, qtd)
+  // console.log(query, qtd)
 
   Professor.find({}, (error, resp) => {
     if (!error) {
@@ -133,7 +133,7 @@ app.patch('/addcomment', (req, res) => {
         if (!prof) {
           return res.status(404).send()
         }
-        console.log(prof)
+        //console.log(prof)
       })
       .catch(error => {
         res.status(404).send()
@@ -184,7 +184,7 @@ app.patch('/ecu', (req, res) => {
   
     Professor.findByIdAndUpdate(id)
       .then(prof => {
-        console.log(prof)
+        //console.log(prof)
         prof.commentaries[index].downs += 1
         let ups = prof.commentaries[index].ups
         let downs = prof.commentaries[index].downs
@@ -201,6 +201,68 @@ app.patch('/ecu', (req, res) => {
         console.log(error)
       })
     })
+
+
+app.patch('/addposvote', (req, res) => {
+  console.log('PATCH /addposvote')
+
+  let id = req.body.id
+  console.log('id', id)
+
+  if (!ObjectID.isValid(id)) {
+    console.log('id invalido')
+    return res.status(404).send()
+  }
+
+  Professor.findByIdAndUpdate(id, 
+    {$push: { 
+      votes: { 
+        vote: 1, 
+        date: new Date()
+      }
+    }})
+    .then(prof => {
+      if (!prof) {
+        return res.status(404).send()
+      }
+      //console.log(prof)
+    })
+    .catch(error => {
+      res.status(404).send()
+      console.log(error)
+    })
+})
+
+
+app.patch('/addnegvote', (req, res) => {
+  console.log('PATCH /addnegvote')
+
+  let id = req.body.id
+  console.log('id', id)
+
+  if (!ObjectID.isValid(id)) {
+    console.log('id invalido')
+    return res.status(404).send()
+  }
+
+  Professor.findByIdAndUpdate(id, 
+    {$push: { 
+      votes: { 
+        vote: -1, 
+        date: new Date()
+      }
+    }})
+    .then(prof => {
+      if (!prof) {
+        return res.status(404).send()
+      }
+      //console.log(prof)
+    })
+    .catch(error => {
+      res.status(404).send()
+      console.log(error)
+    })
+})
 
 app.listen(port, () => {
   console.log(`Started at port ${port}`)

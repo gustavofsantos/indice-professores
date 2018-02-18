@@ -1,4 +1,5 @@
 import React from 'react'
+import TiHeartFullOutline from 'react-icons/lib/ti/heart-full-outline'
 
 import Commentary from './Commentary'
 
@@ -7,7 +8,17 @@ const Commentaries = (props) => (
     <p className='add-commentary__message'>comentários</p>
   {
     props.commentaries.length === 0 &&
-      <p>Ainda não existem comentários.</p>
+      <div>
+      <p className='commentary-box__text-message '>
+        Ainda não existem comentários.
+      </p>
+      <p className='commentary-box__text-message '>
+        Conte a sua história com <TiHeartFullOutline />, 
+      </p>
+      <p className='commentary-box__text-message '>
+        será para sempre anônima.
+      </p>
+      </div>
   }
   {
     props.commentaries.map((commentary, index) => (

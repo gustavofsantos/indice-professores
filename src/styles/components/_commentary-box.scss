@@ -23,7 +23,15 @@
   margin-bottom: 0.4rem;
   margin: $s-size;
   white-space: normal;
-  //width: 100%;
+}
+
+.commentary-box__text-message {
+  color: $fancy-foreground;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  white-space: normal;
+  margin: $s-size;
 }
 
 .commentary-box__counters {

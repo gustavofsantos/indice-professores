@@ -1,19 +1,20 @@
 import React from 'react'
 import axios from 'axios'
+import Link from 'react-router-dom/Link'
 
 import Commentaries from './Commentaries'
 import ButtonAddComment from './ButtonAddComment'
-import Link from 'react-router-dom/Link';
-import ProfessorInfo from './ProfessorInfo';
-import BoxComment from './BoxComment';
+import ProfessorInfo from './ProfessorInfo'
+import BoxComment from './BoxComment'
+import BoxVote from './BoxVote'
 
 export default class ProfessorPage extends React.Component {
   state = {
     _id: '',
-    name: '',
-    unit: '',
-    index: '',
-    votes: '',
+    name: null,
+    unit: null ,
+    index: null,
+    votes: null,
     comments: [],
     haveVoted: false
   }
@@ -32,7 +33,7 @@ export default class ProfessorPage extends React.Component {
           this.setState(() => ({
             _id: res.data.professor._id,
             name: res.data.professor.name,
-            unit: res.data.professor.unit,
+            unit: res.data.professor.unit.toUpperCase(),
             index: res.data.professor.index,
             votes: res.data.professor.votes,
             comments: res.data.professor.commentaries
@@ -113,6 +114,7 @@ export default class ProfessorPage extends React.Component {
     })
   }
 
+
   componentWillMount() {
     console.log('Componente ProfessorPage irá montar...')
     let id = this.props.match.params.id
@@ -133,8 +135,12 @@ export default class ProfessorPage extends React.Component {
           <div>
             <ProfessorInfo
               name={this.state.name}
-              unit={this.state.unit.toUpperCase()}
-              index={this.state.index}
+              unit={(this.state.unit)? this.state.unit.toUpperCase() : '--'}
+              votes={(this.state.votes)? this.state.votes.length : '0'} />
+          </div>
+          <div>
+            <BoxVote
+              id={this.state._id}
               votes={this.state.votes} />
           </div>
           <div>
